@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SecureAI Terminal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/stilos.css') }}">
+</head>
+<body>
+
+<canvas id="matrix-bg"></canvas>
+
+<div class="app">
+  <!-- HEADER -->
+  <header>
+    <div class="shield">🛡</div>
+    <div class="header-info">
+      <div class="header-title">SECUREAI</div>
+      <div class="header-sub">THREAT ANALYSIS TERMINAL · GPT-NEO-1.3B ENGINE</div>
+    </div>
+    <div class="header-stats">
+      <div class="stat"><strong id="msg-count">0</strong>QUERIES</div>
+      <div class="stat"><strong>LOCAL</strong>INFERENCE</div>
+      <div class="status-indicator">
+        <div class="dot"></div>
+        SECURE
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <span>root@secureai</span><span class="sep">:</span><span>/home/analyst</span><span class="sep">$</span> ./chat --model gpt-neo-1.3b --mode interactive
+  </div>
+
+  <!-- CHAT -->
+  <div id="chat-window">
+    <div class="welcome" id="welcome">
+      <pre>
+ ███████╗███████╗ ██████╗██╗   ██╗██████╗ ███████╗ █████╗ ██╗
+ ██╔════╝██╔════╝██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗██║
+ ███████╗█████╗  ██║     ██║   ██║██████╔╝█████╗  ███████║██║
+ ╚════██║██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝  ██╔══██║██║
+ ███████║███████╗╚██████╗╚██████╔╝██║  ██║███████╗██║  ██║██║
+ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝</pre>
+      <div class="welcome-title">SISTEMA INICIALIZADO</div>
+      <div class="welcome-desc">
+        Motor de IA cargado · Inferencia <em>100% local</em><br/>
+        Modelo: <em>EleutherAI/gpt-neo-1.3B</em> · Modo: <em>ANÁLISIS</em><br/><br/>
+        Ingresa un prompt para comenzar el análisis de seguridad.
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUT -->
+  <div class="input-section">
+    <div class="input-label">COMANDO :: <span>MODO INTERACTIVO ACTIVO</span></div>
+    <div class="input-row">
+      <div class="prompt-prefix">>&nbsp;</div>
+      <textarea id="prompt" rows="1" placeholder="Ingresa tu consulta de seguridad..." maxlength="600"></textarea>
+      <button id="send-btn">EJECUTAR</button>
+    </div>
+    <div class="input-hint">
+      <span>[ENTER] enviar · [SHIFT+ENTER] nueva línea</span>
+      <span id="char-count">0 / 600</span>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
